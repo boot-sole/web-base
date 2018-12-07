@@ -1,28 +1,26 @@
 (ns sole.web-base.config
   "Task pipeline configuration tasks."
   {:boot/export-tasks true}
-  (:require [boot.core :as boot :refer [deftask task-options!]]))
+  (:require [boot.core :as boot :refer [deftask task-options!]]
+            [sole.core :as sole]))
 
 (deftask production
   "Configure a task pipeline with production options"
   []
-  (task-options!
-   ;; TODO: Generate sweet task options from environment data
-   )
+  ;; TODO: Generate sweet task options from environment data
+  (sole/task-options-for 'sole.web-base.config/production)
   identity)
 
 (deftask development
   "Configure a task pipeline with development options"
   []
-  (task-options!
-   ;; TODO: Generate sweet task options from environment data
-   )
+  ;; TODO: Generate sweet task options from environment data
+  (sole/task-options-for 'sole.web-base.config/development)
   identity)
 
 (deftask testing
   "Configure a task pipeline with testing options"
   []
-  (task-options!
-   ;; TODO: Generate sweet task options from environment data
-   )
+  ;; TODO: Generate sweet task options from environment data
+  (sole/task-options-for 'sole.web-base.config/testing)
   identity)
